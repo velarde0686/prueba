@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>EcoViva | Conciencia Ecológica</title>
+    <link rel="icon" type="image/png" href="img/icon.png">
+    <style>
+        /* ========== RESET Y ESTILOS GLOBALES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Roboto', sans-serif;
+            background: linear-gradient(145deg, #eaf7e6 0%, #c8e6d9 100%);
+            color: #1e2f2c;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* contenedor principal con ancho responsivo */
+        .contenedor {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        /* ========== HEADER HERO ========== */
+        .hero {
+            background: radial-gradient(circle at 10% 30%, #1e4b3e, #0b2b23);
+            border-radius: 2.5rem;
+            padding: 2.8rem 2rem;
+            margin: 1rem 0 2rem 0;
+            color: white;
+            box-shadow: 0 20px 35px -12px rgba(0, 32, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #f9f3c1, #c7f0b2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            font-weight: 500;
+            border-left: 4px solid #a3d9a5;
+            padding-left: 1rem;
+            margin: 0.5rem 0 1rem 0;
+            opacity: 0.9;
+        }
+
+        .btn-eco {
+            display: inline-block;
+            background: #5aa469;
+            color: #0a2f25;
+            font-weight: bold;
+            padding: 0.7rem 1.7rem;
+            border-radius: 60px;
+            text-decoration: none;
+            margin-top: 1.2rem;
+            transition: 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-eco:hover {
+            background: #7bc47f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+            color: #052015;
+        }
+
+        /* ========== SECCIÓN DATOS CLAVE ========== */
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.8rem;
+            margin: 3rem 0 2rem 0;
+        }
+
+        .card-stat {
+            background: rgba(255,255,245,0.85);
+            backdrop-filter: blur(2px);
+            flex: 1;
+            min-width: 180px;
+            padding: 1.6rem 1rem;
+            border-radius: 2rem;
+            text-align: center;
+            box-shadow: 0 15px 25px -12px rgba(0,20,0,0.2);
+            transition: all 0.25s ease;
+            border: 1px solid #d0e8c0;
+        }
+
+        .card-stat:hover {
+            transform: translateY(-8px);
+            background: white;
+        }
+
+        .numero {
+            font-size: 2.7rem;
+            font-weight: 800;
+            color: #2c7a47;
+            display: block;
+            line-height: 1;
+        }
+
+        .etiqueta {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #1f4d3a;
+        }
+
+        /* ========== TARJETAS DE INFORMACIÓN ECOLÓGICA ========== */
+        .seccion-titulo {
+            font-size: 2rem;
+            margin: 2.5rem 0 1.2rem 0;
+            font-weight: 700;
+            border-left: 8px solid #3f9e5c;
+            padding-left: 1rem;
+            color: #1a3a30;
+        }
+
+        .cards-ecologia {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .eco-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(2px);
+            flex: 1 1 280px;
+            border-radius: 2rem;
+            padding: 1.8rem 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 18px -12px rgba(0,0,0,0.2);
+            border: 1px solid #bee0b0;
+            text-align: center;
+        }
+
+        .eco-card:hover {
+            background: white;
+            transform: scale(1.02);
+            border-color: #7bc47f;
+        }
+
+        .icono {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+
+        .eco-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: #286b44;
+        }
+
+        .eco-card p {
+            color: #2c423b;
+            font-size: 0.95rem;
+            margin: 0.8rem 0;
+        }
+
+        /* ========== GALERÍA / IMÁGENES CONCIENCIA ========== */
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .item-galeria {
+            background: #fef9e6;
+            border-radius: 2rem;
+            overflow: hidden;
+            flex: 1 1 240px;
+            transition: 0.2s;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+        }
+
+        .img-placeholder {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background-blend-mode: overlay;
+        }
+
+        .img-placeholder span {
+            background: rgba(0,0,0,0.4);
+            padding: 0.4rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+        }
+
+        .item-galeria p {
+            padding: 0.8rem;
+            text-align: center;
+            font-weight: 600;
+            background: #f1f7ea;
+        }
+
+        /* fondos temáticos para cada imagen */
+        .img1 { background-image: linear-gradient(120deg, #2b7a4b, #96e6b3), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTEyIDJhMTAgMTAgMCAwIDAtMTAgMTBjMCA0LjQyIDMuNTggOCA4IDggMi4yIDAgNC4yLTEuMDggNS40OC0yLjc2bDIuMTUgMi4xNSAxLjQxLTEuNDEtMi4xNS0yLjE1QzE4LjkyIDE2LjIgMjAgMTQuMiAyMCAxMmExMCAxMCAwIDAgMC0xMC0xMHptMCAxNmE2IDYgMCAwIDEgMC0xMnY2bDQgMmgwYTYgNiAwIDAgMS00IDR6Ii8+PC9zdmc+'); background-blend-mode: overlay; background-size: cover; }
+        .img2 { background-image: linear-gradient(145deg, #3b8d5e, #c0e0b0), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJhMTAgMTAgMCAwIDAtMTAgMTAgMCAwIDAgMjAgMCAxMCAxMCAwIDAgMC0xMC0xMHptMCAxNmE2IDYgMCAwIDEgMC0xMlYxM2wtMyAyaDZsLTMtMlY0YTYgNiAwIDAgMSAwIDEyeiIvPjwvc3ZnPg=='); background-blend-mode: overlay; background-size: cover; }
+        .img3 { background-image: linear-gradient(135deg, #1f6e43, #d2f0c0), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHJlY3QgeD0iNCIgeT0iNCIgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiByeD0iMiIvPjwvc3ZnPg=='); background-blend-mode: overlay; background-size: cover; }
+
+        /* ========== ACCIÓN - LLAMADO A RECICLAR ========== */
+        .cta-reciclaje {
+            background: #264e3ac9;
+            background: linear-gradient(115deg, #1f513db3, #317e4fb3), url('https://www.transparenttextures.com/patterns/green-dust.png');
+            border-radius: 2.5rem;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+            color: white;
+            backdrop-filter: brightness(0.98);
+        }
+
+        .cta-reciclaje h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.8rem 0;
+        }
+
+        .input-group input {
+            padding: 1rem 1.2rem;
+            border-radius: 60px;
+            border: none;
+            width: 260px;
+            font-size: 1rem;
+            outline: none;
+            background: #ffffffee;
+        }
+
+        .input-group button {
+            background: #f5bc70;
+            color: #1e3b2c;
+            font-weight: bold;
+            border: none;
+            padding: 0 1.9rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .input-group button:hover {
+            background: #ffd966;
+            transform: scale(0.97);
+        }
+
+        #mensajeReciclaje {
+            margin-top: 0.8rem;
+            font-weight: 500;
+            background: #1e3a2e80;
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            margin-top: 3rem;
+            background: #13261e;
+            border-radius: 2rem 2rem 0 0;
+            padding: 2rem 1rem;
+            text-align: center;
+            color: #cfe6cf;
+        }
+
+        footer a {
+            color: #b3e4ac;
+            text-decoration: none;
+        }
+
+        /* responsive */
+        @media (max-width: 700px) {
+            .contenedor {
+                padding: 0.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .stats-grid {
+                flex-direction: column;
+            }
+            .seccion-titulo {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="contenedor">
+    <!-- HERO principal -->
+    <div class="hero">
+        <h1>🌿 EcoViva 🌍</h1>
+        <div class="tagline">Un solo planeta, una sola familia. Actúa por la Tierra hoy.</div>
+        <a href="#accion" class="btn-eco" id="btnHero">🌱 Únete al cambio →</a>
+    </div>
+
+    <!-- DATOS ECOLÓGICOS CLAVE (estadísticas) -->
+    <div class="stats-grid">
+        <div class="card-stat">
+            <span class="numero">8M+</span>
+            <span class="etiqueta">Toneladas plástico / año</span>
+            <small style="display:block; margin-top:8px;">en los océanos</small>
+        </div>
+        <div class="card-stat">
+            <span class="numero">🌳 18M</span>
+            <span class="etiqueta">Hectáreas de bosque</span>
+            <small>se pierden anualmente</small>
+        </div>
+        <div class="card-stat">
+            <span class="numero">⚡ 75%</span>
+            <span class="etiqueta">Energía renovable posible</span>
+            <small>con inversión verde</small>
+        </div>
+        <div class="card-stat">
+            <span class="numero">🐝 40%</span>
+            <span class="etiqueta">Insectos polinizadores</span>
+            <small>en riesgo por pesticidas</small>
+        </div>
+    </div>
+
+    <!-- SECCIÓN EDUCACIÓN ECOLOGICA (tarjetas) -->
+    <div class="seccion-titulo" id="accion">💚 Acciones que sanan el planeta</div>
+    <div class="cards-ecologia">
+        <div class="eco-card">
+            <span class="icono">🚯</span>
+            <h3>Menos plástico</h3>
+            <p>Evita envases de un solo uso. Lleva tu bolsa y botella reutilizable. Cada año 1 millón de aves mueren por residuos plásticos.</p>
+        </div>
+        <div class="eco-card">
+            <span class="icono">🚰</span>
+            <h3>Ahorra agua</h3>
+            <p>Cierra la llave mientras te cepillas, repara fugas. El agua dulce es solo el 2.5% del total del planeta.</p>
+        </div>
+        <div class="eco-card">
+            <span class="icono">🔋</span>
+            <h3>Energía responsable</h3>
+            <p>Apaga luces, desconecta aparatos. Apuesta por energías limpias: sol, viento. Reduce tu huella de carbono.</p>
+        </div>
+        <div class="eco-card">
+            <span class="icono">♻️</span>
+            <h3>Recicla consciente</h3>
+            <p>Separa residuos: orgánico, vidrio, papel y plástico. El reciclaje evita la extracción de nuevas materias primas.</p>
+        </div>
+    </div>
+
+    <!-- GALERÍA INSPIRADORA (ecología visual) -->
+    <div class="seccion-titulo">📸 Naturaleza que debemos proteger</div>
+    <div class="galeria">
+        <div class="item-galeria">
+            <div class="img-placeholder img1"><span>🌲🌊</span></div>
+            <p>Bosques y océanos: pulmones del mundo</p>
+        </div>
+        <div class="item-galeria">
+            <div class="img-placeholder img2"><span>🐘🌿</span></div>
+            <p>Biodiversidad en peligro de extinción</p>
+        </div>
+        <div class="item-galeria">
+            <div class="img-placeholder img3"><span>☀️🔋</span></div>
+            <p>Energía solar: futuro sostenible</p>
+        </div>
+    </div>
+
+    <!-- SECCIÓN INTERACTIVA: COMPROMISO ECOLÓGICO (simulación donación / acción reciclaje) -->
+    <div class="cta-reciclaje" id="interactivo">
+        <h2>📢 ¡Comprométete con un gesto verde!</h2>
+        <p>Ingresa tu nombre y dinos que acción ecológica harás hoy 🌎✨</p>
+        <div class="input-group">
+            <input type="text" id="nombreUsuario" placeholder="Tu nombre" autocomplete="off">
+            <input type="text" id="accionUsuario" placeholder="Ej: reciclar, plantar un árbol...">
+            <button id="btnCompromiso">🤝 Registrar compromiso</button>
+        </div>
+        <div id="mensajeReciclaje"></div>
+        <p style="font-size:0.85rem; margin-top:1rem;">💡 Cada pequeño cambio colectivo genera un gran impacto.</p>
+    </div>
+
+    <!-- DATO EXTRA: FRASE ECOLOGICA Y CONTADOR SIMBÓLICO -->
+    <div style="background: #e2f0da; border-radius: 2rem; padding: 1.2rem; text-align: center; margin: 1rem 0;">
+        <p style="font-style: italic; font-weight: 500;">"La tierra no es una herencia de nuestros padres, sino un préstamo de nuestros hijos" — Proverbio indígena</p>
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.7rem; flex-wrap: wrap;">
+            <span>🌱 <strong>Compromisos registrados hoy:</strong> <span id="contadorCompromisos">0</span></span>
+            <span>♻️ <strong>Meta global 2030:</strong> reducir 50% residuos</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>🌍 EcoViva · Inspirando acción ecológica | Contenido educativo libre para generar conciencia</p>
+        <p>📧 contacto@ecoviva.org | <a href="#">Política de sostenibilidad</a></p>
+        <p style="margin-top: 0.6rem;">🌿 #SalvemosElPlaneta #ActúaVerde</p>
+    </footer>
+</div>
+
+<script>
+    // === Interactividad y lógica del compromiso ecológico ===
+    // Contador de compromisos simulados (se almacena en localStorage para persistencia interna, pero sin backend)
+    let contador = localStorage.getItem('contadorEco');
+    if (contador === null) {
+        contador = 0;
+        localStorage.setItem('contadorEco', contador);
+    } else {
+        contador = parseInt(contador);
+    }
+    const contadorSpan = document.getElementById('contadorCompromisos');
+    const mensajeDiv = document.getElementById('mensajeReciclaje');
+    const btnCompromiso = document.getElementById('btnCompromiso');
+    const nombreInput = document.getElementById('nombreUsuario');
+    const accionInput = document.getElementById('accionUsuario');
+
+    // función actualizar contador visual
+    function actualizarContadorVisual() {
+        contadorSpan.innerText = contador;
+        localStorage.setItem('contadorEco', contador);
+    }
+    actualizarContadorVisual();
+
+    // función añadir compromiso
+    function agregarCompromiso() {
+        let nombre = nombreInput.value.trim();
+        let accion = accionInput.value.trim();
+
+        if (nombre === "") {
+            nombre = "Amigo de la Tierra";
+        }
+        if (accion === "") {
+            accion = "cuidar el medio ambiente 🌿";
+        }
+
+        // Evitar que mensajes se repitan muy rápido, animación amigable
+        mensajeDiv.style.opacity = "0";
+        setTimeout(() => {
+            mensajeDiv.innerHTML = `✅ ¡Gracias ${nombre}! Tu compromiso: "${accion}" se ha sumado a la red ecológica. 🌟`;
+            mensajeDiv.style.opacity = "1";
+        }, 50);
+        
+        // incrementar contador global
+        contador++;
+        actualizarContadorVisual();
+        
+        // efecto visual extra: cambio temporal en el botón
+        btnCompromiso.style.transform = "scale(0.96)";
+        setTimeout(() => {
+            btnCompromiso.style.transform = "";
+        }, 150);
+        
+        // Limpiar inputs solo si se quiere? No borramos para que puedan escribir otra acción.
+        // Pero reseteamos placeholder con un efecto sutil
+        nombreInput.placeholder = "¡Tú eres parte del cambio!";
+        accionInput.placeholder = "p.ej. reducir plástico";
+        
+        // Si el usuario quiere, puede dejar los campos, pero no forzamos limpieza total.
+        // Opcionalmente, después de 3 segundos restablecer placeholder original
+        setTimeout(() => {
+            if (nombreInput.placeholder === "¡Tú eres parte del cambio!") nombreInput.placeholder = "Tu nombre";
+            if (accionInput.placeholder === "p.ej. reducir plástico") accionInput.placeholder = "Ej: reciclar, plantar un árbol...";
+        }, 3000);
+    }
+
+    btnCompromiso.addEventListener('click', agregarCompromiso);
+    
+    // Permitir agregar con tecla Enter en los inputs
+    function handleEnter(e) {
+        if (e.key === 'Enter') {
+            agregarCompromiso();
+        }
+    }
+    nombreInput.addEventListener('keypress', handleEnter);
+    accionInput.addEventListener('keypress', handleEnter);
+
+    // Botón hero que hace scroll suave hacia la sección de compromiso interactivo
+    const btnHero = document.getElementById('btnHero');
+    if (btnHero) {
+        btnHero.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetSection = document.getElementById('interactivo');
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // resaltar sutílmente
+                targetSection.style.transition = "box-shadow 0.2s";
+                targetSection.style.boxShadow = "0 0 0 3px #b5e3a0";
+                setTimeout(() => {
+                    targetSection.style.boxShadow = "";
+                }, 1000);
+            }
+        });
+    }
+
+    // efecto adicional con mensaje emergente de bienvenida amigable (sin molestar)
+    window.addEventListener('load', () => {
+        const ecoMsg = document.createElement('div');
+        ecoMsg.innerText = '🌱 ¡Bienvenido! Cada acción cuenta. ¿Ya hiciste tu compromiso ecológico hoy?';
+        ecoMsg.style.position = 'fixed';
+        ecoMsg.style.bottom = '20px';
+        ecoMsg.style.right = '20px';
+        ecoMsg.style.backgroundColor = '#1c3c2be6';
+        ecoMsg.style.color = '#f6fadf';
+        ecoMsg.style.padding = '10px 20px';
+        ecoMsg.style.borderRadius = '40px';
+        ecoMsg.style.fontSize = '0.85rem';
+        ecoMsg.style.backdropFilter = 'blur(10px)';
+        ecoMsg.style.zIndex = '1000';
+        ecoMsg.style.boxShadow = '0 5px 12px rgba(0,0,0,0.2)';
+        ecoMsg.style.fontWeight = '500';
+        document.body.appendChild(ecoMsg);
+        setTimeout(() => {
+            ecoMsg.style.opacity = '0';
+            ecoMsg.style.transition = 'opacity 1s';
+            setTimeout(() => ecoMsg.remove(), 1200);
+        }, 4800);
+    });
+</script>
+</body>
+</html>
